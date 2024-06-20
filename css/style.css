@@ -82,3 +82,8 @@ body {
   padding: 0 1rem;
   height: 100%;
 }
+
+#racingDuck{
+  margin-left: 0%;
+  width: fit-content;
+}
