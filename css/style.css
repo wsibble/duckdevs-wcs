@@ -10,3 +10,8 @@ body {
   margin: 0 auto;
   font-size: 8em;
 }
+
+#racingDuck{
+  margin-left: 0%;
+  width: fit-content;
+}
