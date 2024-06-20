@@ -1,7 +1,11 @@
 function getDuck() {
   const duckDiv = document.getElementById('duck');
-  duckDiv.innerHTML = `🦆
+	const duckAudio = document.getElementById('audioPlayer');
+  duckDiv.innerHTML = '🦆';
+	duckAudio.play();
+
   <button onclick="cookDuck()">Cook Duck</button>`;
+
 }
 
 function cookDuck() {
