@@ -1,11 +1,8 @@
 function getDuck() {
   const duckDiv = document.getElementById('duck');
-	const duckAudio = document.getElementById('audioPlayer');
-  duckDiv.innerHTML = '🦆';
-	duckAudio.play();
-
-  <button onclick="cookDuck()">Cook Duck</button>`;
-
+  const duckAudio = document.getElementById('audioPlayer');
+  duckDiv.innerHTML = '🦆<button onclick="cookDuck()">Cook Duck</button>';
+  duckAudio.play();
 }
 
 function cookDuck() {
@@ -13,7 +10,7 @@ function cookDuck() {
 
   // console.log("ran the cookDuck function.");
 
-  duckDiv.innerHTML = "🍗";
+  duckDiv.innerHTML = '🍗';
 }
 
 let duckPosition = 0;
@@ -29,10 +26,10 @@ const stopRace = function (e) {
 
 function duckMove() {
   duckPosition = (duckPosition + Math.floor(Math.random() * 5)) % 100;
-  document.getElementById("racingDuck").style.marginLeft = `${duckPosition}%`;
+  document.getElementById('racingDuck').style.marginLeft = `${duckPosition}%`;
 }
 
-document.getElementById("duckRaceButton").addEventListener("click", startRace);
+document.getElementById('duckRaceButton').addEventListener('click', startRace);
 document
-  .getElementById("duckStopRaceButton")
-  .addEventListener("click", stopRace);
+  .getElementById('duckStopRaceButton')
+  .addEventListener('click', stopRace);
