@@ -1,6 +1,8 @@
+
 async function getDuck() {
   const duckDiv = document.getElementById('duck');
 	const nameLabel = document.getElementById('name');
+  const duckAudio = document.getElementById('audioPlayer');
 	const names = await fetchNames();
 	const name = getRandomName(names);
 
@@ -9,7 +11,10 @@ async function getDuck() {
   duckDiv.innerHTML = `
 	🦆
   <button onclick="cookDuck()">Cook Duck</button>`;
-	}
+  duckAudio.play();
+}
+
+  
 
 async function fetchNames(){
 	const response = await fetch('../data/names.json')
@@ -24,14 +29,20 @@ async function fetchNames(){
 function getRandomName(names){
 	const randomIndex = Math.floor(Math.random() * names.length);
 	return names[randomIndex];
+
 }
 
 function cookDuck() {
-  const duckDiv = document.getElementById('duck');
+  const duckDiv = document.getElementById("duck");
 
   // console.log("ran the cookDuck function.");
 
-  duckDiv.innerHTML = "🍗";
+  duckDiv.innerHTML = '🍗';
+}
+
+function getDev() {
+  const devDiv = document.getElementById("dev");
+  devDiv.innerHTML = "🛠️";
 }
 
 let duckPosition = 0;
@@ -47,10 +58,8 @@ const stopRace = function (e) {
 
 function duckMove() {
   duckPosition = (duckPosition + Math.floor(Math.random() * 5)) % 100;
-  document.getElementById("racingDuck").style.marginLeft = `${duckPosition}%`;
+  document.getElementById('racingDuck').style.marginLeft = `${duckPosition}%`;
 }
 
-document.getElementById("duckRaceButton").addEventListener("click", startRace);
-document
-  .getElementById("duckStopRaceButton")
-  .addEventListener("click", stopRace);
+document.getElementById('duckRaceButton').addEventListener('click', startRace);
+document.getElementById('duckStopRaceButton').addEventListener('click', stopRace);
