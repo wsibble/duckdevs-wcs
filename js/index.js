@@ -1,16 +1,23 @@
 function getDuck() {
+
   const duckDiv = document.getElementById('duck');
   const duckAudio = document.getElementById('audioPlayer');
   duckDiv.innerHTML = '🦆<button onclick="cookDuck()">Cook Duck</button>';
   duckAudio.play();
+
 }
 
 function cookDuck() {
-  const duckDiv = document.getElementById('duck');
+  const duckDiv = document.getElementById("duck");
 
   // console.log("ran the cookDuck function.");
 
   duckDiv.innerHTML = '🍗';
+}
+
+function getDev() {
+  const devDiv = document.getElementById("dev");
+  devDiv.innerHTML = "🛠️";
 }
 
 let duckPosition = 0;
