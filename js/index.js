@@ -1,7 +1,29 @@
-function getDuck() {
+async function getDuck() {
   const duckDiv = document.getElementById('duck');
-  duckDiv.innerHTML = `🦆
+	const nameLabel = document.getElementById('name');
+	const names = await fetchNames();
+	const name = getRandomName(names);
+
+	
+	nameLabel.textContent = name;
+  duckDiv.innerHTML = `
+	🦆
   <button onclick="cookDuck()">Cook Duck</button>`;
+	}
+
+async function fetchNames(){
+	const response = await fetch('../data/names.json')
+	if (!response.ok){
+		throw Error('Error fetching - ' + response.statusText);
+	}
+
+	const names = await response.json();
+	return names;
+}
+
+function getRandomName(names){
+	const randomIndex = Math.floor(Math.random() * names.length);
+	return names[randomIndex];
 }
 
 function cookDuck() {
