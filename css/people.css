@@ -81,7 +81,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(17, 17, 17, 0.6) 100%
     ),
-    url("/img/duck-contact-1.png");
+    url("../img/duck-contact-1.png");
 }
 
 #duck2 {
@@ -90,7 +90,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(17, 17, 17, 0.6) 100%
     ),
-    url("/img/duck-contact-2.png");
+    url("../img/duck-contact-2.png");
 }
 
 #duck3 {
@@ -99,7 +99,7 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(17, 17, 17, 0.6) 100%
     ),
-    url("/img/duck-contact-3.png");
+    url("../img/duck-contact-3.png");
 }
 
 #duck4 {
@@ -108,5 +108,5 @@
       rgba(0, 0, 0, 0) 0%,
       rgba(17, 17, 17, 0.6) 100%
     ),
-    url("/img/duck-contact-4.png");
+    url("../img/duck-contact-4.png");
 }
