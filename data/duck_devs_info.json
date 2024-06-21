@@ -35,6 +35,11 @@
     "githubLink": "https://github.com/shantanujain9"
   },
   {
+    "name": "Darius Dunn",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/deadius1"
+  },
+  {
     "name": "Sean Molion",
     "role": "Software Engineer",
     "githubLink": "https://github.com/seanmo15"
@@ -83,5 +88,10 @@
     "name": "Paris Machado",
     "role": "Software Engineer",
     "githublink": "https://github.com/ParksMacadoo"
+  },
+  {
+    "name": "Aditya Manikandan",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/adimanikandan"
   }
 ]
