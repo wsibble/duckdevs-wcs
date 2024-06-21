@@ -49,11 +49,11 @@ let countdown;
 
 function startTimer() {
   const durationInput = document.getElementById('duration').value;
-  let timeRemaining = parseInt(durationInput, 10) * 60; 
+  let timeRemaining = parseInt(durationInput, 10) * 60;
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
-      alert('Quack! Enter an integer larger than 0');
-      return;
+    alert('Quack! Enter an integer larger than 0');
+    return;
   }
 
   clearInterval(countdown);
@@ -76,7 +76,9 @@ function updateTimerDisplay(seconds) {
   const minutes = Math.floor((seconds % 3600) / 60);
   const remainingSeconds = seconds % 60;
 
-  timerDisplay.textContent = `${zeroFormat(hours)}:${zeroFormat(minutes)}:${zeroFormat(remainingSeconds)}`;
+  timerDisplay.textContent = `${zeroFormat(hours)}:${zeroFormat(
+    minutes
+  )}:${zeroFormat(remainingSeconds)}`;
 }
 
 function zeroFormat(number) {
@@ -84,10 +86,8 @@ function zeroFormat(number) {
 }
 //
 
-
 let duckPositions = [0];
 let duckTimeouts = [0];
-
 
 let ducksMoving = false;
 
@@ -107,15 +107,6 @@ const stopRace = function (e) {
     alert('Need at least one duck to start the race');
   } else {
     alert('Race has already started');
-  }
-};
-
-const stopRace = function (e) {
-  if (ducksMoving) {
-    clearInterval(duckTimeout);
-    ducksMoving = false;
-  } else {
-    alert('Start a race before stopping');
   }
 };
 
@@ -156,7 +147,6 @@ function resetDucks() {
     document.getElementById(`racingDuck${i}`).style.marginLeft = 0;
   }
 }
-
 
 document.getElementById('duckRaceButton').addEventListener('click', startRace);
 document
