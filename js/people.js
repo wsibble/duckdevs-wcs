@@ -27,7 +27,7 @@ function createPeopleCard(user) {
   pRole.textContent = user.role;
 
   let button = document.createElement("button");
-  button.textContent = "Connect on github";
+  button.textContent = "Github";
   button.onclick = function () {
     window.location.href = user.githubLink;
   };
