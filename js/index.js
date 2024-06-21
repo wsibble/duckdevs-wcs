@@ -44,15 +44,57 @@ function getDev() {
   devDiv.innerHTML = "🛠️";
 }
 
+// Timer
+let countdown;
+
+function startTimer() {
+  const durationInput = document.getElementById('duration').value;
+  let timeRemaining = parseInt(durationInput, 10) * 60; 
+
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+      alert('Please enter a valid number greater than zero.');
+      return;
+  }
+
+  clearInterval(countdown);
+  updateTimerDisplay(timeRemaining);
+
+  countdown = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      clearInterval(countdown);
+      alert('Time is up!');
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay(seconds) {
+  const timerDisplay = document.getElementById('timer');
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  timerDisplay.textContent = `${zeroFormat(hours)}:${zeroFormat(minutes)}:${zeroFormat(remainingSeconds)}`;
+}
+
+function zeroFormat(number) {
+  return number < 10 ? '0' + number : number;
+}
+//
+
 let duckPosition = 0;
 let duckTimeout;
 
 const startRace = function (e) {
+  startTimer();
   duckTimeout = setInterval(duckMove, 500);
 };
 
 const stopRace = function (e) {
   clearInterval(duckTimeout);
+  clearInterval(countdown);
 };
 
 function duckMove() {
@@ -61,6 +103,8 @@ function duckMove() {
 }
 
 document.getElementById("duckRaceButton").addEventListener("click", startRace);
+
 document
   .getElementById("duckStopRaceButton")
   .addEventListener("click", stopRace);
+
