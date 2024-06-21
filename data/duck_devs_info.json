@@ -30,9 +30,13 @@
     "githubLink": "https://github.com/wsibble"
   },
   {
+    "name": "Shantanu Jain",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/shantanujain9"
+  },
+  {
     "name": "Sean Molion",
-    "role": "Software Engineer",
+    "role": "Sean Engineer",
     "githubLink": "https://github.com/seanmo15"
   }
-
 ]
