@@ -19,12 +19,12 @@ async function fetchNames() {
   }
 
   const names = await response.json();
-  return names;
+  return names['people'];
 }
 
 function getRandomName(names) {
   const randomIndex = Math.floor(Math.random() * names.length);
-  return names[randomIndex];
+  return names[randomIndex]['name'];
 }
 
 function cookDuck() {
