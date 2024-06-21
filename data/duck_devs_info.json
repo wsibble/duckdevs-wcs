@@ -1,0 +1,61 @@
+[
+  {
+    "name": "Chris Minnick",
+    "role": "C$",
+    "githubLink": "https://github.com/chrisminnick"
+  },
+  {
+    "name": "Chris Penick",
+    "role": "DJ Crispy",
+    "githubLink": "https://github.com/chrispenick"
+  },
+  {
+    "name": "Dan Savidge",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/dsavidge02"
+  },
+  {
+    "name": "Arvind Kasiliya",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/Arvonit"
+  },
+  {
+    "name": "Dustin Hagstrom",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/dustinhagstrom"
+  },
+  {
+    "name": "Will Sibble",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/wsibble"
+  },
+  {
+    "name": "Shantanu Jain",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/shantanujain9"
+  },
+  {
+    "name": "Disha Verma",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/div12345678"
+  },
+    "name": "Will Bartholomay",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/wbartholomay"
+  },
+  {
+    "name": "Zach Florian",
+    "role": "Full Duck Engineer"
+    "githubLink": "https://github.com/Zach-Flo"
+  },
+  {
+    "name": "Evan Phillips",
+    "role": "Software Engineer",
+    "githublink": "https://github.com/Evanp467"
+  },
+  {
+    "name": "Paris Machado",
+    "role": "Software Engineer",
+    "githublink": "https://github.com/ParksMacadoo"
+  }
+]

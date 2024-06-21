@@ -78,7 +78,8 @@ body {
   height: 100%;
 }
 
-#racingDuck {
+.racingDuck {
   margin-left: 0%;
   width: fit-content;
+  transform: scale(-1, 1);
 }
