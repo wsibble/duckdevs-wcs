@@ -1,8 +1,28 @@
 [
   {
+    "name": "Chris Minnick",
+    "role": "C$",
+    "githubLink": "https://github.com/chrisminnick"
+  },
+  {
+    "name": "Chris Penick",
+    "role": "DJ Crispy",
+    "githubLink": "https://github.com/chrispenick"
+  },
+  {
     "name": "Dan Savidge",
     "role": "Software Engineer",
     "githubLink": "https://github.com/dsavidge02"
+  },
+  {
+    "name": "Arvind Kasiliya",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/Arvonit"
+  },
+  {
+    "name": "Dustin Hagstrom",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/dustinhagstrom"
   },
   {
     "name": "Will Sibble",
