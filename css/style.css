@@ -18,6 +18,19 @@ body {
   font-size: 8em;
 }
 
+.homepage_button {
+  background-color: #13afea;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px; 
+}
+
 .navbar {
   height: 80px;
   width: 100%;
