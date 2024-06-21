@@ -75,7 +75,7 @@
   transition: 0.2s ease-in;
 }
 
-#duck1 {
+.duck1 {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 0%,
@@ -84,7 +84,7 @@
     url("/img/duck-contact-1.png");
 }
 
-#duck2 {
+.duck2 {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 0%,
@@ -93,7 +93,7 @@
     url("/img/duck-contact-2.png");
 }
 
-#duck3 {
+.duck3 {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 0%,
@@ -102,7 +102,7 @@
     url("/img/duck-contact-3.png");
 }
 
-#duck4 {
+.duck4 {
   background-image: linear-gradient(
       to bottom,
       rgba(0, 0, 0, 0) 0%,

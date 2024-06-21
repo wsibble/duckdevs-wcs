@@ -14,8 +14,8 @@ function createPeopleCard(user) {
 
   let peopleCard = document.createElement("div");
   peopleCard.classList.add("people__card");
-  let randomId = "duck" + (Math.floor(Math.random() * 4) + 1);
-  peopleCard.id = randomId;
+  let randomClass = "duck" + (Math.floor(Math.random() * 4) + 1);
+  peopleCard.classList.add(randomClass);
 
   let cardContent = document.createElement("div");
   cardContent.classList.add("card__content");
