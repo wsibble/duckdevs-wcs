@@ -52,7 +52,7 @@ function startTimer() {
   let timeRemaining = parseInt(durationInput, 10) * 60; 
 
   if (isNaN(timeRemaining) || timeRemaining <= 0) {
-      alert('Please enter a valid number greater than zero.');
+      alert('Quack! Enter an integer larger than 0');
       return;
   }
 
