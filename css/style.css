@@ -18,12 +18,22 @@ body {
   font-size: 8em;
 }
 
+.homepage_button {
+  background-color: #13afea;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px; 
+}
+
 .navbar {
   height: 80px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-size: 1.5rem;
   position: sticky;
   top: 0;
@@ -61,7 +71,6 @@ body {
   display: flex;
   align-items: center;
   list-style: none;
-  text-align: center;
 }
 
 .navbar__item {
@@ -77,13 +86,13 @@ body {
   -moz-text-fill-color: transparent;
   display: flex;
   align-items: center;
-  justify-content: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
 }
 
-#racingDuck {
+.racingDuck {
   margin-left: 0%;
   width: fit-content;
+  transform: scale(-1, 1);
 }
