@@ -1,6 +1,6 @@
 async function fetchUsersData() {
   try {
-    const response = await fetch('duck_devs_info.json');
+    const response = await fetch('data/duck_devs_info.json');
     const data = await response.json();
     return data;
   } catch (error) {
@@ -12,10 +12,10 @@ async function fetchUsersData() {
 function createPeopleCard(user) {
   let peopleContainer = document.getElementById('container1');
 
-  let peopleCard = document.createElement('div');
-  peopleCard.classList.add('people__card');
-  let randomId = 'duck' + (Math.floor(Math.random() * 4) + 1);
-  peopleCard.id = randomId;
+  let peopleCard = document.createElement("div");
+  peopleCard.classList.add("people__card");
+  let randomClass = "duck" + (Math.floor(Math.random() * 4) + 1);
+  peopleCard.classList.add(randomClass);
 
   let cardContent = document.createElement('div');
   cardContent.classList.add('card__content');

@@ -9,6 +9,9 @@ async function getDuck() {
   duckDiv.innerHTML = `
 	🦆
   <button onclick="cookDuck()">Cook Duck</button>`;
+  // reset the racing duck after getting cooked
+  document.getElementById('racingDuck').innerHTML = '🦆';
+
   duckAudio.play();
 }
 
@@ -19,20 +22,21 @@ async function fetchNames() {
   }
 
   const names = await response.json();
-  return names;
+  return names['people'];
 }
 
 function getRandomName(names) {
   const randomIndex = Math.floor(Math.random() * names.length);
-  return names[randomIndex];
+  return names[randomIndex]['name'];
 }
 
 function cookDuck() {
   const duckDiv = document.getElementById('duck');
+  duckDiv.innerHTML = '🍗';
+  // cook the racing duck as well
+  document.getElementById('racingDuck').innerHTML = '🍗';
 
   // console.log("ran the cookDuck function.");
-
-  duckDiv.innerHTML = '🍗';
 }
 
 function getDev() {
@@ -47,60 +51,58 @@ let duckTimeout;
 let ducksMoving = false;
 
 const startRace = function (e) {
-  if(document.getElementById('duckRace').innerHTML !== "" && !ducksMoving){
+  if (document.getElementById('duckRace').innerHTML !== '' && !ducksMoving) {
     duckTimeout = setInterval(duckMove, 500);
     ducksMoving = true;
-  }
-  else if(!ducksMoving){
-    alert("Need at least one duck to start the race");
-  }
-  else{
-    alert("Race has already started");
+  } else if (!ducksMoving) {
+    alert('Need at least one duck to start the race');
+  } else {
+    alert('Race has already started');
   }
 };
 
 const stopRace = function (e) {
-  if(ducksMoving){
+  if (ducksMoving) {
     clearInterval(duckTimeout);
     ducksMoving = false;
-  }
-  else{
-    alert("Start a race before stopping");
+  } else {
+    alert('Start a race before stopping');
   }
 };
 
 function duckMove() {
-  for(let i = 0; i < duckPositions.length; i++){
+  for (let i = 0; i < duckPositions.length; i++) {
     duckPositions[i] = (duckPositions[i] + Math.floor(Math.random() * 5)) % 100;
-    document.getElementById(`racingDuck${i}`).style.marginLeft = `${duckPositions[i]}%`;
+    document.getElementById(
+      `racingDuck${i}`
+    ).style.marginLeft = `${duckPositions[i]}%`;
   }
 }
 
-function addDuckRacer(){
+function addDuckRacer() {
   // create a new duck
-  let dRacer = document.createElement("div");
-  dRacer.innerHTML = "🦆";
-  dRacer.id = `racingDuck${duckPositions.length}`
-  dRacer.className = "racingDuck";
+  let dRacer = document.createElement('div');
+  dRacer.innerHTML = '🦆';
+  dRacer.id = `racingDuck${duckPositions.length}`;
+  dRacer.className = 'racingDuck';
   // update duckPositions and duckTimeouts
   duckPositions.push(0);
   duckTimeouts.push(undefined);
-  document.getElementById("duckRace").appendChild(dRacer);
+  document.getElementById('duckRace').appendChild(dRacer);
 }
 
-function removeDuckRacer(){
-  if(document.getElementById('duckRace') !== ""){
+function removeDuckRacer() {
+  if (document.getElementById('duckRace') !== '') {
     racingDiv = document.getElementById('duckRace');
     racingDiv.removeChild(racingDiv.lastChild);
     duckPositions.pop();
-  }
-  else{
-    alert("No more ducks to remove");
+  } else {
+    alert('No more ducks to remove');
   }
 }
 
-function resetDucks(){
-  for(let i = 0; i < duckPositions.length; i++){
+function resetDucks() {
+  for (let i = 0; i < duckPositions.length; i++) {
     duckPositions[i] = 0;
     document.getElementById(`racingDuck${i}`).style.marginLeft = 0;
   }
@@ -110,6 +112,12 @@ document.getElementById('duckRaceButton').addEventListener('click', startRace);
 document
   .getElementById('duckStopRaceButton')
   .addEventListener('click', stopRace);
-document.getElementById('addDuckButton').addEventListener('click', addDuckRacer);
-document.getElementById('removeDuckButton').addEventListener('click', removeDuckRacer);
-document.getElementById('resetDucksButton').addEventListener('click', resetDucks);
+document
+  .getElementById('addDuckButton')
+  .addEventListener('click', addDuckRacer);
+document
+  .getElementById('removeDuckButton')
+  .addEventListener('click', removeDuckRacer);
+document
+  .getElementById('resetDucksButton')
+  .addEventListener('click', resetDucks);
