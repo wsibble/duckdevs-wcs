@@ -29,9 +29,14 @@
     "role": "Software Engineer",
     "githubLink": "https://github.com/wsibble"
   },
-    {
+  {
     "name": "Shantanu Jain",
     "role": "Data Engineer",
     "githubLink": "https://github.com/shantanujain9"
+  },
+  {
+    "name": "Disha Verma",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/div12345678"
   }
 ]
