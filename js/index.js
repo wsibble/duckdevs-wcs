@@ -52,7 +52,7 @@ let ducksMoving = false;
 
 const startRace = function (e) {
   if (document.getElementById('duckRace').innerHTML !== '' && !ducksMoving) {
-    duckTimeout = setInterval(duckMove, 500);
+    duckTimeout = setInterval(duckMove, 50);
     ducksMoving = true;
   } else if (!ducksMoving) {
     alert('Need at least one duck to start the race');
@@ -72,7 +72,7 @@ const stopRace = function (e) {
 
 function duckMove() {
   for (let i = 0; i < duckPositions.length; i++) {
-    duckPositions[i] = (duckPositions[i] + Math.floor(Math.random() * 5)) % 100;
+    duckPositions[i] = (duckPositions[i] + Math.random() * 0.5) % 100;
     document.getElementById(
       `racingDuck${i}`
     ).style.marginLeft = `${duckPositions[i]}%`;
@@ -95,6 +95,7 @@ function removeDuckRacer() {
   if (document.getElementById('duckRace') !== '') {
     racingDiv = document.getElementById('duckRace');
     racingDiv.removeChild(racingDiv.lastChild);
+    duckPositions.pop();
   } else {
     alert('No more ducks to remove');
   }
