@@ -29,9 +29,16 @@
     "role": "Software Engineer",
     "githubLink": "https://github.com/wsibble"
   },
+<<<<<<< HEAD:duck_devs_info.json
   {
     "name": "Angie Chen",
     "role": "Software Engineer",
     "githubLink": "https://github.com/anchen08"
+=======
+    {
+    "name": "Shantanu Jain",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/shantanujain9"
+>>>>>>> b3307eba1ca01ba0ced411d6fd0247c3ae0c4d2d:data/duck_devs_info.json
   }
 ]
