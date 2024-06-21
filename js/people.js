@@ -1,6 +1,7 @@
 async function fetchUsersData() {
   try {
     const response = await fetch('duck_devs_info.json');
+
     const data = await response.json();
     return data;
   } catch (error) {
