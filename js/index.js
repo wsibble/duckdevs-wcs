@@ -92,6 +92,7 @@ function removeDuckRacer(){
   if(document.getElementById('duckRace') !== ""){
     racingDiv = document.getElementById('duckRace');
     racingDiv.removeChild(racingDiv.lastChild);
+    duckPositions.pop();
   }
   else{
     alert("No more ducks to remove");
