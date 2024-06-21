@@ -10,7 +10,7 @@ async function getDuck() {
 	🦆
   <button onclick="cookDuck()">Cook Duck</button>`;
   // reset the racing duck after getting cooked
-  document.getElementById('racingDuck').innerHTML = '🦆';
+  document.getElementById('racingDuck0').innerHTML = '🦆';
 
   duckAudio.play();
 }
