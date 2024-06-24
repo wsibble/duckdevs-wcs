@@ -139,3 +139,24 @@ body {
   width: fit-content;
   transform: scale(-1, 1);
 }
+
+#duckSweeperGameBoard {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgreen;
+  border: 2px solid;
+  border-color: darkolivegreen;
+}
+
+#duckSweeperGameBoard td {
+  margin-left: auto;
+  margin-right: auto;
+  width: 27px;
+  height: 27px;
+  border: 1px dotted;
+  border-color: darkolivegreen;
+}
+
+#newGameButton {
+  margin-right: 90px;
+}
