@@ -166,3 +166,13 @@ body {
 #newGameButton {
   margin-right: 90px;
 }
+
+img {
+  display: none;
+}
+
+
+img[src] {
+ display: block;
+ margin: 0 auto;
+}
