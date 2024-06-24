@@ -2,6 +2,7 @@
   <head>
     <title>Duck Devs</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/duckarmy.css" />
     <script defer src="js/duckarmy.js"></script>
   </head>
   <body>
@@ -37,8 +38,19 @@
     <div>
     <label for="armysize">Enter the size of your duck army:</label>
     <input type="number" id="armysize" min="1" value="10" required>
-    <button onclick="createDuckArmy()">Summon the duck army</button>
+    <button onclick="createDuckArmy()">Summon your duck army</button>
+    <button onclick="battleDuckArmy()">Battle your duck army</button>
     </div>
-    <div id="duckarmy"></div>
+    <div id="duckarmyfield">
+      <h1 id="duckbattlewinstatus"></h1>
+      <div id="duckarmyheader">
+        <h2>Your Duck Army</h2>
+        <div id="duckarmy"></div>
+      </div>
+      <div id="compduckarmyheader">
+        <h2>Opponent's Duck Army</h2>
+        <div id="compduckarmy"></div>
+      </div>
+    </div>
   </body>
 </html>
