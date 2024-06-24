@@ -1,11 +1,30 @@
 const board = [[]];
 const visited = [[]];
-const duckPositions = [];
+let duckPositions;
+let placesCleared;
+let markingDecoys;
+
 const gameTable = document.getElementById("ducksweeperGameBoard");
 const gameInfo = document.getElementById("gameInfo");
 const startButton = document.getElementById("newGameButton");
 startButton.addEventListener("click", startGame);
 const markDecoyButton = document.getElementById("markDuckButton");
+
+markDecoyButton.addEventListener("click", (event) => {
+  console.log(markingDecoys);
+  if (markingDecoys == false) {
+    markingDecoys = true;
+    markDecoyButton.style.backgroundColor = "darkgray";
+    markDecoyButton.style.color = "lightgray";
+  } else {
+    markingDecoys = false;
+    markDecoyButton.removeAttribute("style");
+  }
+});
+
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
 
 function fillEmptyMap(array, width, height) {
   for (var x = 0; x < width; x++) {
@@ -13,23 +32,6 @@ function fillEmptyMap(array, width, height) {
     for (var y = 0; y < height; y++) {
       array[x][y] = 0;
     }
-  }
-}
-
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
-// https://stackoverflow.com/questions/3944122/detect-left-mouse-button-press
-function detectLeftButton(event) {
-  if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) {
-    return false;
-  } else if ("buttons" in event) {
-    return event.buttons === 1;
-  } else if ("which" in event) {
-    return event.which === 1;
-  } else {
-    return event.button == 1 || event.type == "click";
   }
 }
 
@@ -41,10 +43,13 @@ function displayBoard() {
       let tempCell = document.getElementById(`${i},${j}`);
       if (board[i][j] === -1) {
         tempCell.innerHTML = "🦆";
+      } else if (board[i][j] === 0) {
+        tempCell.innerHTML = " ";
       } else {
         tempCell.innerHTML = board[i][j];
         if (visited[i][j] === 0) {
           tempCell.style.backgroundColor = "lightorange";
+          // console.log("J:LFDSKJF:LDSKJF");
         }
       }
 
@@ -75,6 +80,7 @@ function populateBoard(numDucks) {
       }
     }
   }
+  console.log(duckPositions);
 }
 function numberDFS(x, y) {
   let localVisited = [[]];
@@ -85,6 +91,10 @@ function numberDFS(x, y) {
     const current = stack.pop();
     x = current[0];
     y = current[1];
+    if (visited[x][y] == 0) {
+      placesCleared++;
+      visited[x][y] = 1;
+    }
 
     if (localVisited[x][y] == 0) {
       localVisited[x][y] = 1;
@@ -105,34 +115,62 @@ function numberDFS(x, y) {
   }
 }
 function clickHandler(event) {
+  let cell = document.getElementById(event.target.id);
+
   let arr = event.target.id.split(",").map(Number);
   let x = arr[0];
   let y = arr[1];
-
   console.log(arr, board[x][y]);
-  if (visited[x][y] == 1) return;
-  else visited[x][y] = 1;
 
+  if (visited[x][y] == 1 || cell.innerText == "🚩") return;
+
+  // mark decoys
+  if (markingDecoys == true) {
+    if (cell.innerText == "🚩") cell.innerText = "🌱";
+    else if (cell.innerText == "🌱") cell.innerText = "🚩";
+    else console.log("ERROR - no matching flags for decoy");
+    return;
+  }
+
+  visited[x][y] = 1;
+  placesCleared++;
+
+  // game over - clicked on duck
   if (board[x][y] === -1) {
-    displayBoard();
-    // game over
     gameInfo.innerText = "Oh no! You scared away the ducks :(";
+    displayBoard();
+    startButton.innerText = "Play again?";
+
     // display entire board
     // change new game to play again
   } else if (board[x][y] === 0) {
     // clear all 0 and adjacent numbers to 0
     numberDFS(x, y);
   } else {
-    let cell = document.getElementById(event.target.id);
+    // let cell = document.getElementById(event.target.id);
     cell.innerHTML = board[x][y];
+  }
+
+  console.log(placesCleared);
+  if (placesCleared == 90) {
+    gameInfo.innerHTML = "Congrats! You found all the ducks!";
+    duckPositions.forEach((pos) => {
+      document.getElementById(`${pos[0]},${pos[1]}`).innerHTML = "🦆";
+      visited[pos[0]][pos[1]] = 1;
+    });
   }
 }
 
 function startGame() {
-  // gameTable.style.visibility = "visible";
-  // gameTable.style.hidden = "false";
+  placesCleared = 0;
+  markingDecoys = false;
+  duckPositions = [];
+
   gameTable.removeAttribute("hidden");
   gameTable.innerHTML = "";
+  startButton.innerText = "New Game";
+  markDecoyButton.disabled = false;
+  markDecoyButton.removeAttribute("style");
 
   gameInfo.innerHTML = "";
   fillEmptyMap(board, 10, 10);
