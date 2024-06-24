@@ -21,6 +21,7 @@
               <li><a href="leaderboard.html">Leaderboard</a></li>
               <li><a href="duckarmy.html">Duck Army</a></li>
               <li><a href="duckpond.html">Duck Pond</a></li>
+              <li><a href="ducksweeper.html">DuckSweeper</a></li>
             </ul>
           </li>
           <li class="navbar__item">
@@ -30,9 +31,14 @@
       </div>
     </nav>
 
+    <audio id="audioPlayer" src="./duck.mp3"></audio>
     <h1>Quack!</h1>
     <p>Click the button below to summon a duck army!</p>
+    <div>
+    <label for="armysize">Enter the size of your duck army:</label>
+    <input type="number" id="armysize" min="1" value="10" required>
     <button onclick="createDuckArmy()">Summon the duck army</button>
+    </div>
     <div id="duckarmy"></div>
   </body>
 </html>
