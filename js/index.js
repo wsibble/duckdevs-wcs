@@ -12,6 +12,7 @@ async function getDuck() {
   // reset the racing duck after getting cooked
   document.getElementById('racingDuck0').innerHTML = '🦆';
 
+  duckAudio.currentTime = 0;
   duckAudio.play();
 }
 
