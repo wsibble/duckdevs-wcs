@@ -29,16 +29,10 @@
     "role": "Software Engineer",
     "githubLink": "https://github.com/wsibble"
   },
-
   {
     "name": "Shantanu Jain",
     "role": "Data Engineer",
     "githubLink": "https://github.com/shantanujain9"
-  },
-  {
-    "name": "Angie Chen",
-    "role": "Software Engineer",
-    "githubLink": "https://github.com/anchen08"
   },
   {
     "name": "Darius Dunn",
@@ -104,5 +98,10 @@
     "name": "Adam Young",
     "role": "Cyber Security",
     "githubLink": "https://github.com/BiggestBubba633"
+  },
+  {
+    "name": "Angie Chen",
+    "role": "Software Engineer",
+    "githubLink": "https://github.com/anchen08"
   }
 ]

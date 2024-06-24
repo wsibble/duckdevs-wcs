@@ -15,8 +15,12 @@
           <li class="navbar__item">
             <a href="index.html" class="navbar__links">HOME</a>
           </li>
-          <li class="navbar__item">
-            <a href="projects.html" class="navbar__links">PROJECTS</a>
+          <li class="navbar__item" id="dropdown__head">
+            <a class="navbar__links">PROJECTS</a>
+            <ul class="dropdown__content">
+              <li><a href="leaderboard.html">Leaderboard</a></li>
+              <li><a href="duckarmy.html">Duck Army</a></li>
+            </ul>
           </li>
           <li class="navbar__item">
             <a href="people.html" class="navbar__links">TEAM MEMBERS</a>
@@ -35,6 +39,14 @@
     <div id="duckRace">
       <div id="racingDuck0" class="racingDuck">🦆</div>
     </div>
+
+
+    <h2>Countdown Timer</h2>
+    <label for="duration">Enter duration (Minutes):</label>
+    <input type="number" id="duration" min="1" required>
+    <div class="timer" id="timer">00:00:00</div>
+    
+
     <button class="homepage_button" id="duckRaceButton">Start Race</button>
     <button class="homepage_button" id="duckStopRaceButton">Stop Race</button>
     <button class="homepage_button"id="addDuckButton">Add Duck</button>
