@@ -28,7 +28,7 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 10px; 
+  margin: 10px;
 }
 
 .navbar {
@@ -95,4 +95,19 @@ body {
   margin-left: 0%;
   width: fit-content;
   transform: scale(-1, 1);
+}
+
+#duckSweeperGameBoard {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgreen;
+  border: 2px solid;
+  border-color: darkolivegreen;
+}
+
+#duckSweeperGameBoard td {
+  /* margin-left: auto;
+  margin-right: auto; */
+  min-width: 25px;
+  min-height: 25px;
 }
