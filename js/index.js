@@ -47,66 +47,105 @@ function getDev() {
   devDiv.innerHTML = '🛠️';
 }
 
+// Timer
+let countdown;
+
+function startTimer() {
+  const durationInput = document.getElementById('duration').value;
+  let timeRemaining = parseInt(durationInput, 10) * 60;
+
+  if (isNaN(timeRemaining) || timeRemaining <= 0) {
+    alert('Quack! Enter an integer larger than 0');
+    return;
+  }
+
+  clearInterval(countdown);
+  updateTimerDisplay(timeRemaining);
+
+  countdown = setInterval(() => {
+    timeRemaining--;
+    updateTimerDisplay(timeRemaining);
+
+    if (timeRemaining <= 0) {
+      clearInterval(countdown);
+      alert('Time is up!');
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay(seconds) {
+  const timerDisplay = document.getElementById('timer');
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const remainingSeconds = seconds % 60;
+
+  timerDisplay.textContent = `${zeroFormat(hours)}:${zeroFormat(
+    minutes
+  )}:${zeroFormat(remainingSeconds)}`;
+}
+
+function zeroFormat(number) {
+  return number < 10 ? '0' + number : number;
+}
+//
+
 let duckPositions = [0];
 let duckTimeouts = [0];
-let duckPosition = 0;
-let duckTimeout;
+
 let ducksMoving = false;
 
 const startRace = function (e) {
-  if(document.getElementById('duckRace').innerHTML !== "" && !ducksMoving){
-    duckTimeout = setInterval(duckMove, 500);
-    ducksMoving = true;
-  }
-  else if(!ducksMoving){
-    alert("Need at least one duck to start the race");
-  }
-  else{
-    alert("Race has already started");
-  }
+  startTimer();
+  duckTimeout = setInterval(duckMove, 500);
 };
 
 const stopRace = function (e) {
-  if(ducksMoving){
-    clearInterval(duckTimeout);
-    ducksMoving = false;
-  }
-  else{
-    alert("Start a race before stopping");
+  clearInterval(duckTimeout);
+  clearInterval(countdown);
+
+  if (document.getElementById('duckRace').innerHTML !== '' && !ducksMoving) {
+    duckTimeout = setInterval(duckMove, 50);
+    ducksMoving = true;
+  } else if (!ducksMoving) {
+    alert('Need at least one duck to start the race');
+  } else {
+    alert('Race has already started');
   }
 };
 
 function duckMove() {
-  for(let i = 0; i < duckPositions.length; i++){
-    duckPositions[i] = (duckPositions[i] + Math.floor(Math.random() * 5)) % 100;
-    document.getElementById(`racingDuck${i}`).style.marginLeft = `${duckPositions[i]}%`;
+  for (let i = 0; i < duckPositions.length; i++) {
+    duckPositions[i] = (duckPositions[i] + Math.random() * 0.5) % 100;
+    document.getElementById(
+      `racingDuck${i}`
+    ).style.marginLeft = `${duckPositions[i]}%`;
   }
 }
 
-function addDuckRacer(){
+function addDuckRacer() {
   // create a new duck
-  let dRacer = document.createElement("div");
-  dRacer.innerHTML = "🦆";
-  dRacer.id = `racingDuck${duckPositions.length}`
-  dRacer.className = "racingDuck";
+  let dRacer = document.createElement('div');
+  dRacer.innerHTML = '🦆';
+  dRacer.id = `racingDuck${duckPositions.length}`;
+  dRacer.className = 'racingDuck';
   // update duckPositions and duckTimeouts
   duckPositions.push(0);
   duckTimeouts.push(undefined);
-  document.getElementById("duckRace").appendChild(dRacer);
+  document.getElementById('duckRace').appendChild(dRacer);
 }
 
-function removeDuckRacer(){
-  if(document.getElementById('duckRace') !== ""){
+function removeDuckRacer() {
+  if (document.getElementById('duckRace') !== '') {
     racingDiv = document.getElementById('duckRace');
     racingDiv.removeChild(racingDiv.lastChild);
-  }
-  else{
-    alert("No more ducks to remove");
+    duckPositions.pop();
+  } else {
+    alert('No more ducks to remove');
   }
 }
 
-function resetDucks(){
-  for(let i = 0; i < duckPositions.length; i++){
+function resetDucks() {
+  for (let i = 0; i < duckPositions.length; i++) {
     duckPositions[i] = 0;
     document.getElementById(`racingDuck${i}`).style.marginLeft = 0;
   }
@@ -116,6 +155,12 @@ document.getElementById('duckRaceButton').addEventListener('click', startRace);
 document
   .getElementById('duckStopRaceButton')
   .addEventListener('click', stopRace);
-document.getElementById('addDuckButton').addEventListener('click', addDuckRacer);
-document.getElementById('removeDuckButton').addEventListener('click', removeDuckRacer);
-document.getElementById('resetDucksButton').addEventListener('click', resetDucks);
+document
+  .getElementById('addDuckButton')
+  .addEventListener('click', addDuckRacer);
+document
+  .getElementById('removeDuckButton')
+  .addEventListener('click', removeDuckRacer);
+document
+  .getElementById('resetDucksButton')
+  .addEventListener('click', resetDucks);
