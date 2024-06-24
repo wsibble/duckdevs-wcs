@@ -87,3 +87,13 @@ body {
   margin-left: 0%;
   width: fit-content;
 }
+
+img {
+  display: none;
+}
+
+
+img[src] {
+ display: block;
+ margin: 0 auto;
+}

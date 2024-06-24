@@ -2,6 +2,8 @@ async function getDuck() {
   const duckDiv = document.getElementById('duck');
   const nameLabel = document.getElementById('name');
   const duckAudio = document.getElementById('audioPlayer');
+  const duckImage = document.getElementById('duckImage');
+  setDuckImage(duckImage);
   const names = await fetchNames();
   const name = getRandomName(names);
 
@@ -25,6 +27,16 @@ async function fetchNames() {
 function getRandomName(names) {
   const randomIndex = Math.floor(Math.random() * names.length);
   return names[randomIndex]['name'];
+}
+
+function setDuckImage(duckImage){
+  const randomNum = Math.floor(Math.random() * 64);
+  if(randomNum === 63){
+    duckImage.src = 'img/duck-contact-1.png';
+  }
+  else{
+    duckImage.src = 'img/duck-contact-2.png';
+  }
 }
 
 function cookDuck() {
