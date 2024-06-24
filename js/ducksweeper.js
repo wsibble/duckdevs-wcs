@@ -9,9 +9,9 @@ const gameInfo = document.getElementById("gameInfo");
 const startButton = document.getElementById("newGameButton");
 startButton.addEventListener("click", startGame);
 const markDecoyButton = document.getElementById("markDuckButton");
+const duckAudio = document.getElementById("audioPlayer");
 
 markDecoyButton.addEventListener("click", (event) => {
-  console.log(markingDecoys);
   if (markingDecoys == false) {
     markingDecoys = true;
     markDecoyButton.style.backgroundColor = "darkgray";
@@ -49,7 +49,6 @@ function displayBoard() {
         tempCell.innerHTML = board[i][j];
         if (visited[i][j] === 0) {
           tempCell.style.backgroundColor = "lightorange";
-          // console.log("J:LFDSKJF:LDSKJF");
         }
       }
 
@@ -80,7 +79,6 @@ function populateBoard(numDucks) {
       }
     }
   }
-  console.log(duckPositions);
 }
 function numberDFS(x, y) {
   let localVisited = [[]];
@@ -116,13 +114,11 @@ function numberDFS(x, y) {
 }
 function clickHandler(event) {
   let cell = document.getElementById(event.target.id);
-
   let arr = event.target.id.split(",").map(Number);
   let x = arr[0];
   let y = arr[1];
-  console.log(arr, board[x][y]);
-
-  if (visited[x][y] == 1 || cell.innerText == "🚩") return;
+  // console.log(arr, board[x][y]);
+  if (visited[x][y] == 1) return;
 
   // mark decoys
   if (markingDecoys == true) {
@@ -132,6 +128,7 @@ function clickHandler(event) {
     return;
   }
 
+  if (cell.innerText == "🚩") return;
   visited[x][y] = 1;
   placesCleared++;
 
@@ -140,9 +137,7 @@ function clickHandler(event) {
     gameInfo.innerText = "Oh no! You scared away the ducks :(";
     displayBoard();
     startButton.innerText = "Play again?";
-
-    // display entire board
-    // change new game to play again
+    duckAudio.play();
   } else if (board[x][y] === 0) {
     // clear all 0 and adjacent numbers to 0
     numberDFS(x, y);
@@ -151,7 +146,6 @@ function clickHandler(event) {
     cell.innerHTML = board[x][y];
   }
 
-  console.log(placesCleared);
   if (placesCleared == 90) {
     gameInfo.innerHTML = "Congrats! You found all the ducks!";
     duckPositions.forEach((pos) => {
