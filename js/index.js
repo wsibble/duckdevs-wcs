@@ -8,9 +8,7 @@ async function getDuck() {
   const name = getRandomName(names);
 
   nameLabel.textContent = name;
-  duckDiv.innerHTML = `
-	🦆
-  <button onclick="cookDuck()">Cook Duck</button>`;
+  duckDiv.innerHTML = `<button onclick="cookDuck()">Cook Duck</button>`;
   duckAudio.play();
 }
 
@@ -30,21 +28,18 @@ function getRandomName(names) {
 }
 
 function setDuckImage(duckImage){
-  const randomNum = Math.floor(Math.random() * 64);
-  if(randomNum === 63){
-    duckImage.src = 'img/duck-contact-1.png';
+  const randomNum = Math.floor(Math.random() * 32);
+  if(randomNum === 0){
+    duckImage.src = 'img/turkey_emoji.png';
   }
   else{
-    duckImage.src = 'img/duck-contact-2.png';
+    duckImage.src = 'img/duck_emoji.png';
   }
 }
 
 function cookDuck() {
-  const duckDiv = document.getElementById('duck');
-
-  // console.log("ran the cookDuck function.");
-
-  duckDiv.innerHTML = '🍗';
+  const duckImage = document.getElementById('duckImage');
+  duckImage.src = 'img/cooked_duck.png';
 }
 
 function getDev() {
