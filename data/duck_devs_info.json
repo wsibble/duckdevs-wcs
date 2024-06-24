@@ -103,5 +103,10 @@
     "name": "Angie Chen",
     "role": "Software Engineer",
     "githubLink": "https://github.com/anchen08"
+  },
+  {
+    "name": "Chris Truedson",
+    "role": "Data Engineer",
+    "githubLink": "https://github.com/ChrisTruedson"
   }
 ]
