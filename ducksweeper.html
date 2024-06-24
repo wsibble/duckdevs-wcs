@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Leaderboard</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script defer src="js/leaderboard.js"></script>
+    <title>Duck Devs</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+    <script defer src="/js/ducksweeper.js"></script>
   </head>
-
   <body>
     <nav class="navbar">
       <div class="navbar__container">
@@ -32,14 +29,21 @@
         </ul>
       </div>
     </nav>
+    <audio id="audioPlayer" src="./duck.mp3"></audio>
+    <h1>DuckSweeper</h1>
+    <div id="duckSweeper">
+      <p>
+        Help find all the ducks by removing ALL surrounding grass! <br />
+        Be careful not to click on any before finding them all, or else they
+        will fly away.
+      </p>
+      <button id="newGameButton">New Game</button>
+      <button id="markDuckButton" disabled="true">Mark Duck</button>
+      <br />
+      <br />
 
-    <h1>Leaderboard</h1>
-    <table>
-      <thead>
-        <th>Name</th>
-        <td>Wins</td>
-      </thead>
-      <tbody id="lBody"></tbody>
-    </table>
+      <table id="ducksweeperGameBoard" hidden="true"></table>
+      <p id="gameInfo"></p>
+    </div>
   </body>
 </html>
