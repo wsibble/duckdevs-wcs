@@ -133,7 +133,6 @@ body {
   display: block;
 }
 
-
 .racingDuck {
   margin-left: 0%;
   width: fit-content;
@@ -149,8 +148,10 @@ body {
 }
 
 #duckSweeperGameBoard td {
-  /* margin-left: auto;
-  margin-right: auto; */
+  margin-left: auto;
+  margin-right: auto;
   min-width: 25px;
   min-height: 25px;
+  border: 1px dotted;
+  border-color: darkolivegreen;
 }

@@ -43,6 +43,9 @@ function displayBoard() {
         tempCell.innerHTML = "🦆";
       } else {
         tempCell.innerHTML = board[i][j];
+        if (visited[i][j] === 0) {
+          tempCell.style.backgroundColor = "lightorange";
+        }
       }
 
       //if not visited background orange
@@ -86,7 +89,8 @@ function numberDFS(x, y) {
     if (localVisited[x][y] == 0) {
       localVisited[x][y] = 1;
       let tempId = `${x},${y}`;
-      document.getElementById(tempId).innerHTML = board[x][y];
+      document.getElementById(tempId).innerHTML =
+        board[x][y] != 0 ? board[x][y] : " ";
 
       if (board[x][y] != 0) continue;
       for (let r = x - 1; r < x + 2; r++) {
@@ -121,12 +125,15 @@ function clickHandler(event) {
   } else {
     let cell = document.getElementById(event.target.id);
     cell.innerHTML = board[x][y];
-    console.log("yuh");
   }
 }
 
 function startGame() {
+  // gameTable.style.visibility = "visible";
+  // gameTable.style.hidden = "false";
+  gameTable.removeAttribute("hidden");
   gameTable.innerHTML = "";
+
   gameInfo.innerHTML = "";
   fillEmptyMap(board, 10, 10);
   fillEmptyMap(visited, 10, 10);
