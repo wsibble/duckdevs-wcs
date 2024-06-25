@@ -1,18 +1,15 @@
-import './App.css';
-import DuckDevsLogo from './components/DuckDevsLogo';
-import NavBar from './components/NavBar';
-import DuckMessage from './components/DuckMessage';
-import GetDuckButton from './components/GetDuckButton';
-import HomePageDuckRace from './components/HomePageDuckRace';
+import "./App.css";
+import DuckDevsLogo from "./components/DuckDevsLogo";
+import NavBar from "./components/NavBar";
+import DuckMessage from "./components/DuckMessage";
+import GetDuckButton from "./components/GetDuckButton";
+import HomePageDuckRace from "./components/HomePageDuckRace";
 
 function App() {
   return (
     <>
       <header>
-        <div style={{ display: 'flex' }}>
-          <DuckDevsLogo />
-          <NavBar />
-        </div>
+        <NavBar />
         <DuckMessage />
         <GetDuckButton />
         <HomePageDuckRace />
