@@ -163,16 +163,16 @@ body {
   border-color: darkolivegreen;
 }
 
-#newGameButton {
-  margin-right: 90px;
+#duckSweeperTools #timerBlock {
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 img {
   display: none;
 }
 
-
 img[src] {
- display: block;
- margin: 0 auto;
+  display: block;
+  margin: 0 auto;
 }
