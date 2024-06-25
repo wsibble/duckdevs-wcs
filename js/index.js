@@ -2,16 +2,13 @@ async function getDuck() {
   const duckDiv = document.getElementById('duck');
   const nameLabel = document.getElementById('name');
   const duckAudio = document.getElementById('audioPlayer');
+  const duckImage = document.getElementById('duckImage');
+  setDuckImage(duckImage);
   const names = await fetchNames();
   const name = getRandomName(names);
 
   nameLabel.textContent = name;
-  duckDiv.innerHTML = `
-	🦆
-  <button onclick="cookDuck()">Cook Duck</button>`;
-  // reset the racing duck after getting cooked
-  document.getElementById('racingDuck0').innerHTML = '🦆';
-
+  duckDiv.innerHTML = `<button onclick="cookDuck()">Cook Duck</button>`;
   duckAudio.play();
 }
 
@@ -30,13 +27,19 @@ function getRandomName(names) {
   return names[randomIndex]['name'];
 }
 
-function cookDuck() {
-  const duckDiv = document.getElementById('duck');
-  duckDiv.innerHTML = '🍗';
-  // cook the racing duck as well
-  document.getElementById('racingDuck').innerHTML = '🍗';
+function setDuckImage(duckImage){
+  const randomNum = Math.floor(Math.random() * 32);
+  if(randomNum === 0){
+    duckImage.src = 'img/turkey_emoji.png';
+  }
+  else{
+    duckImage.src = 'img/duck_emoji.png';
+  }
+}
 
-  // console.log("ran the cookDuck function.");
+function cookDuck() {
+  const duckImage = document.getElementById('duckImage');
+  duckImage.src = 'img/cooked_duck.png';
 }
 
 function getDev() {

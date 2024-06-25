@@ -18,6 +18,12 @@ body {
   font-size: 8em;
 }
 
+.leaderboard_table {
+  margin-left: auto;
+  margin-right: auto;
+  color: #13afea;
+}
+
 .homepage_button {
   background-color: #13afea;
   border: none;
@@ -138,4 +144,35 @@ body {
   margin-left: 0%;
   width: fit-content;
   transform: scale(-1, 1);
+}
+
+#duckSweeperGameBoard {
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgreen;
+  border: 2px solid;
+  border-color: darkolivegreen;
+}
+
+#duckSweeperGameBoard td {
+  margin-left: auto;
+  margin-right: auto;
+  width: 27px;
+  height: 27px;
+  border: 1px dotted;
+  border-color: darkolivegreen;
+}
+
+#newGameButton {
+  margin-right: 90px;
+}
+
+img {
+  display: none;
+}
+
+
+img[src] {
+ display: block;
+ margin: 0 auto;
 }
