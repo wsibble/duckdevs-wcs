@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Leaderboard</title>
+    <title>Duck Devs</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script defer src="js/leaderboard.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/duckracer.css" />
+    <script defer src="js/duckracer.js"></script>
   </head>
-
   <body>
     <nav class="navbar">
       <div class="navbar__container">
@@ -35,13 +33,15 @@
       </div>
     </nav>
 
-    <h1 class="leaderboard_table">Leaderboard</h1>
-    <table class="leaderboard_table">
-      <thead>
-        <th>Name</th>
-        <td>Wins</td>
-      </thead>
-      <tbody id="lBody"></tbody>
-    </table>
+    <h1>Duck Racer</h1>
+    <div class="duckrace__game">
+      <div class="game__window"></div>
+      <div class="game__info__container">
+        <button class="game__button" id="start">START</button>
+        <span class="game__timer" id="timer">00:00</span>
+        <span class="lap__count" id="lap__count">LAP COUNT: 0/3</span>
+        <button class="game__button" id="reset">RESET</button>
+      </div>
+    </div>
   </body>
 </html>
