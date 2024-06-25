@@ -3,6 +3,7 @@ const visited = [[]];
 let duckPositions;
 let placesCleared;
 let markingDecoys;
+let isFilled; // if the board is filled up yet
 
 const gameTable = document.getElementById("ducksweeperGameBoard");
 const gameInfo = document.getElementById("gameInfo");
@@ -58,14 +59,14 @@ function displayBoard() {
   }
 }
 
-function populateBoard(numDucks) {
+function populateBoard(numDucks, r, c) {
   for (let i = 0; i < numDucks; i++) {
     let x = 0;
     let y = 0;
     do {
       x = getRandomInt(10);
       y = getRandomInt(10);
-    } while (board[x][y] === -1);
+    } while (board[x][y] === -1 || x === r || y === c); // ensure first click not duck
 
     board[x][y] = -1;
     duckPositions.push([x, y]);
@@ -118,6 +119,7 @@ function clickHandler(event) {
   let x = arr[0];
   let y = arr[1];
   // console.log(arr, board[x][y]);
+
   if (visited[x][y] == 1) return;
 
   // mark decoys
@@ -131,6 +133,12 @@ function clickHandler(event) {
   if (cell.innerText == "🚩") return;
   visited[x][y] = 1;
   placesCleared++;
+
+  if (!isFilled) {
+    populateBoard(10, x, y);
+    isFilled = true;
+    console.log("AH");
+  }
 
   // game over - clicked on duck
   if (board[x][y] === -1) {
@@ -159,6 +167,7 @@ function startGame() {
   placesCleared = 0;
   markingDecoys = false;
   duckPositions = [];
+  isFilled = false;
 
   gameTable.removeAttribute("hidden");
   gameTable.innerHTML = "";
@@ -169,7 +178,6 @@ function startGame() {
   gameInfo.innerHTML = "";
   fillEmptyMap(board, 10, 10);
   fillEmptyMap(visited, 10, 10);
-  populateBoard(10);
 
   for (let i = 0; i < 10; i++) {
     let row = gameTable.insertRow(i);
