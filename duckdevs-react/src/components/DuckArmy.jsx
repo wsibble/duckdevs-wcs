@@ -1,7 +1,5 @@
-import React from "react";
-
 const DuckArmy = (props) => {
-  return <></>;
+  return <>Duck Army</>;
 };
 
 export default DuckArmy;
