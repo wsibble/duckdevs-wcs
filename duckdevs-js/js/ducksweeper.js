@@ -2,14 +2,17 @@ const board = [[]];
 const visited = [[]];
 let duckPositions;
 let placesCleared;
-let markingDecoys;
+let markingDecoys; // bool to signify is currently marking decoys
+let isFilled; // if the board is filled up yet
+let countUpInterval; // timer
 
 const gameTable = document.getElementById("ducksweeperGameBoard");
 const gameInfo = document.getElementById("gameInfo");
 const startButton = document.getElementById("newGameButton");
-startButton.addEventListener("click", startGame);
+startButton.addEventListener("click", newGame);
 const markDecoyButton = document.getElementById("markDuckButton");
 const duckAudio = document.getElementById("audioPlayer");
+const timerSpan = document.getElementById("timerBlock");
 
 markDecoyButton.addEventListener("click", (event) => {
   if (markingDecoys == false) {
@@ -58,14 +61,14 @@ function displayBoard() {
   }
 }
 
-function populateBoard(numDucks) {
+function populateBoard(numDucks, r, c) {
   for (let i = 0; i < numDucks; i++) {
     let x = 0;
     let y = 0;
     do {
       x = getRandomInt(10);
       y = getRandomInt(10);
-    } while (board[x][y] === -1);
+    } while (board[x][y] === -1 || x === r || y === c); // ensure first click not duck
 
     board[x][y] = -1;
     duckPositions.push([x, y]);
@@ -118,6 +121,7 @@ function clickHandler(event) {
   let x = arr[0];
   let y = arr[1];
   // console.log(arr, board[x][y]);
+
   if (visited[x][y] == 1) return;
 
   // mark decoys
@@ -132,10 +136,17 @@ function clickHandler(event) {
   visited[x][y] = 1;
   placesCleared++;
 
+  if (!isFilled) {
+    populateBoard(10, x, y);
+    isFilled = true;
+    startTimer();
+  }
+
   // game over - clicked on duck
   if (board[x][y] === -1) {
     gameInfo.innerText = "Oh no! You scared away the ducks :(";
     displayBoard();
+    stopTimer();
     startButton.innerText = "Play again?";
     duckAudio.play();
   } else if (board[x][y] === 0) {
@@ -147,6 +158,7 @@ function clickHandler(event) {
   }
 
   if (placesCleared == 90) {
+    stopTimer();
     gameInfo.innerHTML = "Congrats! You found all the ducks!";
     duckPositions.forEach((pos) => {
       document.getElementById(`${pos[0]},${pos[1]}`).innerHTML = "🦆";
@@ -155,10 +167,32 @@ function clickHandler(event) {
   }
 }
 
-function startGame() {
+function resetTimer() {
+  timerSpan.textContent = "00:00";
+  clearInterval(countUpInterval);
+}
+function stopTimer() {
+  clearInterval(countUpInterval);
+}
+function startTimer(st = 0) {
+  let currentTime = st;
+
+  countUpInterval = setInterval(() => {
+    currentTime++;
+    let minutes = Math.floor(currentTime / 60)
+      .toString()
+      .padStart(2, "0");
+    let seconds = (currentTime % 60).toString().padStart(2, "0");
+    timerSpan.textContent = `${minutes}:${seconds}`;
+  }, 1000);
+}
+
+function newGame() {
   placesCleared = 0;
   markingDecoys = false;
   duckPositions = [];
+  isFilled = false;
+  resetTimer();
 
   gameTable.removeAttribute("hidden");
   gameTable.innerHTML = "";
@@ -169,7 +203,6 @@ function startGame() {
   gameInfo.innerHTML = "";
   fillEmptyMap(board, 10, 10);
   fillEmptyMap(visited, 10, 10);
-  populateBoard(10);
 
   for (let i = 0; i < 10; i++) {
     let row = gameTable.insertRow(i);
