@@ -1,47 +1,46 @@
 import React from "react";
 import "./css/NavBar.css";
 import duckLogo from "../assets/img/duck_devs_transparent.png";
+import { Link } from "react-router-dom";
 
 const NavBar = (props) => {
   return (
     <nav className="navbar">
       <div className="navbar__container">
-        <a href="index.html" id="navbar__logo">
+        <Link to="/" id="navbar__logo">
           DUCK DEVS
           <img src={duckLogo} alt="Duck Devs Logo" />
-        </a>
+        </Link>
         <ul className="navbar__menu">
           <li className="navbar__item">
-            <a href="index.html" className="navbar__links">
+            <Link to="/" className="navbar__links">
               HOME
-            </a>
+            </Link>
           </li>
           <li className="navbar__item" id="dropdown__head">
             <a className="navbar__links">PROJECTS</a>
             <ul className="dropdown__content">
               <li>
-                <a href="leaderboard.html" className="Leaderboard">
-                  Leaderboard
-                </a>
+                <Link to="/projects/leaderboard">Leaderboard</Link>
               </li>
               <li>
-                <a href="duckarmy.html">Duck Army</a>
+                <Link to="/projects/duckarmy">Duck Army</Link>
               </li>
               <li>
-                <a href="duckpond.html">Duck Pond</a>
+                <Link to="/projects/duckpond">Duck Pond</Link>
               </li>
               <li>
-                <a href="ducksweeper.html">DuckSweeper</a>
+                <Link to="/projects/ducksweeper">DuckSweeper</Link>
               </li>
               <li>
-                <a href="duckracer.html">Duck Racer</a>
+                <Link to="/projects/duckracer">Duck Racer</Link>
               </li>
             </ul>
           </li>
           <li className="navbar__item">
-            <a href="people.html" className="navbar__links">
+            <Link to="/people" className="navbar__links">
               TEAM MEMBERS
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
