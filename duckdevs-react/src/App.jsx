@@ -8,7 +8,7 @@ import DuckArmy from './components/DuckArmy';
 import DuckPond from './components/DuckPond.jsx';
 import DuckSweeper from './components/DuckSweeper';
 import DuckRacer from './components/DuckRacer';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
