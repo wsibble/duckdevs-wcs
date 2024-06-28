@@ -28,7 +28,7 @@ function App() {
         </Routes>
         <footer className="footer">
           <a href="https://duckdevs.online/duckdevs-js">
-            Go to the original vanilla JavaScript version.
+            Go to the original vanilla JavaScript version!
           </a>
         </footer>
       </Router>

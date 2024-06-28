@@ -2,7 +2,8 @@
   <head>
     <title>Duck Devs</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script defer src="js/index.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/duckarmy.css" />
+    <script defer src="js/duckarmy.js"></script>
   </head>
   <body>
     <nav class="navbar">
@@ -31,33 +32,26 @@
         </ul>
       </div>
     </nav>
+
     <audio id="audioPlayer" src="./duck.mp3"></audio>
-
     <h1>Quack!</h1>
-    <p>Welcome to Duck Devs!</p>
-    <p>Click the button below to see a duck!</p>
-    <button class="homepage_button" onclick="getDuck()">Get Duck</button>
-    <div id="name"></div>
-    <img id="duckImage" width="160" height="160" />
-    <div id="duck"></div>
-    <div id="duckRace">
-      <div id="racingDuck0" class="racingDuck">🦆</div>
+    <p>Click the button below to summon a duck army!</p>
+    <div>
+    <label for="armysize">Enter the size of your duck army:</label>
+    <input type="number" id="armysize" min="1" value="10" required>
+    <button onclick="createDuckArmy()">Summon your duck army</button>
+    <button onclick="battleDuckArmy()">Battle your duck army</button>
     </div>
-
-    <h2>Countdown Timer</h2>
-    <label for="duration">Enter duration (Minutes):</label>
-    <input type="number" id="duration" min="1" required />
-    <div class="timer" id="timer">00:00:00</div>
-
-    <button class="homepage_button" id="duckRaceButton">Start Race</button>
-    <button class="homepage_button" id="duckStopRaceButton">Stop Race</button>
-    <button class="homepage_button" id="addDuckButton">Add Duck</button>
-    <button class="homepage_button" id="removeDuckButton">Remove Duck</button>
-    <button class="homepage_button" id="resetDucksButton">
-      Reset Duck Positions
-    </button>
-    <footer class="footer">
-      <a href="/"> Go to the React version! </a>
-    </footer>
+    <div id="duckarmyfield">
+      <h1 id="duckbattlewinstatus"></h1>
+      <div id="duckarmyheader">
+        <h2>Your Duck Army</h2>
+        <div id="duckarmy"></div>
+      </div>
+      <div id="compduckarmyheader">
+        <h2>Opponent's Duck Army</h2>
+        <div id="compduckarmy"></div>
+      </div>
+    </div>
   </body>
 </html>
