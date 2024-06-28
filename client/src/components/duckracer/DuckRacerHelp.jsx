@@ -1,4 +1,4 @@
-import "./css/duckracerhelp.css";
+import "../css/duckracer/duckracerhelp.css";
 
 const DuckRacerHelp = (props) => {
   return (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "./css/duckracer.css";
-import duckLogo from "../assets/img/duck_devs_transparent.png";
+import "../css/duckracer/duckracer.css";
+import duckLogo from "../../assets/img/duck_devs_transparent.png";
 import DuckRacerHelp from "./DuckRacerHelp";
 import DuckRacerBoard from "./DuckRacerBoard";
 

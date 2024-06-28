@@ -1,4 +1,4 @@
-import "./css/duckracerboard.css";
+import "../css/duckracer/duckracerboard.css";
 
 const DuckRacerBoard = (props) => {
   return (
