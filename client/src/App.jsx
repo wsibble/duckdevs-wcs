@@ -1,13 +1,13 @@
 import './App.css';
-import NavBar from './components/NavBar';
-import Home from './components/Home';
-import People from './components/People';
+import NavBar from './components/NavBar.jsx';
+import Home from './components/Home.jsx';
+import People from './components/People.jsx';
 import people_data from './assets/data/duck_devs_info.json';
-import Leaderboard from './components/Leaderboard';
-import DuckArmy from './components/DuckArmy';
+import Leaderboard from './components/Leaderboard.jsx';
+import DuckArmy from './components/DuckArmy.jsx';
 import DuckPond from './components/DuckPond.jsx';
-import DuckSweeper from './components/DuckSweeper';
-import DuckRacer from './components/DuckRacer';
+import DuckSweeper from './components/DuckSweeper.jsx';
+import DuckRacer from './components/DuckRacer.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
