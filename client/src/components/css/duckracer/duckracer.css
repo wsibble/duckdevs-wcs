@@ -1,0 +1,126 @@
+h1 {
+  position: relative;
+  font-size: 1.5rem;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  background-image: linear-gradient(to top, #31ffb2 30%, #13afea 100%);
+  background-size: 100%;
+}
+
+.duckrace__game {
+  align-items: center;
+}
+
+.game__window {
+  margin-top: 5px;
+  position: relative;
+  height: 500px;
+  width: 400px;
+  border: 2px solid #000;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.window__bg__black {
+  background-color: #000;
+}
+
+.window__bg__green {
+  background-color: #31ffb2;
+}
+
+.game__header {
+  position: absolute;
+  background-color: #000;
+  height: 50px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game__info {
+  position: absolute;
+  top: 450px;
+  left: -2px;
+  background-color: #ccc;
+  height: 50px;
+  width: 400px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid #000;
+}
+
+.duck__racer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  z-index: 3;
+  background-color: #ccc;
+}
+
+.outer__circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 1;
+  left: -25px;
+  top: -25px;
+  width: 450px;
+  height: 450px;
+  background-color: #13afea;
+}
+
+.center__circle {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 4;
+  left: 90px;
+  top: 90px;
+  width: 220px;
+  height: 220px;
+  background-color: #31ffb2;
+}
+
+.finish__line {
+  position: absolute;
+  z-index: 2;
+  background-image: url("../img/checkered.png");
+}
+
+.game__button {
+  background-image: linear-gradient(to top, #31ffb2 30%, #13afea 100%);
+  background-size: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  border: 2px solid #000;
+}
+
+.game__button:hover {
+  background-image: linear-gradient(to top, #13afea 30%, #31ffb2 100%);
+  font-weight: bold;
+}
+
+.image__container {
+  position: absolute;
+  top: 50px;
+  display: flex;
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+}
+
+#logo {
+  width: 350px;
+  height: 350px;
+}
